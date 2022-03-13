@@ -11,10 +11,10 @@ st.sidebar.selectbox(
     ('Dữ liệu trật tự xã hội', 'Dữ liệu kinh tế - ma túy - môi trường', 'Dữ liệu an toàn giao thông', 'Dữ liệu quản lý nhà nước'))
 st.sidebar.button('Hiển thị')
 def get_UN_data():
-    df = pd.read_csv("C:\\Users\\CATB\\Desktop\\Getting Data\\ttxh_app.csv") 
+    df = pd.read_csv("https://raw.githubusercontent.com/nguyendinhvu290296/DemoWebapp/main/data/ttxh_app.csv") 
     return df.set_index('donvi')
 def get_UN_data_2():
-    df = pd.read_csv("C:\\Users\\CATB\\Desktop\\Getting Data\\ttxh_app_2.csv") 
+    df = pd.read_csv("https://raw.githubusercontent.com/nguyendinhvu290296/DemoWebapp/main/data/ttxh_app_2.csv") 
     return df.set_index('toidanh')                            
 df = get_UN_data()
 df2 = get_UN_data_2()
@@ -77,7 +77,7 @@ with st.expander("Xem chi tiết số liệu"):
        
 st.subheader("1.2. Biểu đồ số vụ theo tội danh") 
 col1, col2 = st.columns(2)
-df_td = pd.read_csv("C:\\Users\\CATB\\Desktop\\Getting Data\\ttxh_app_2.csv")
+df_td = pd.read_csv("https://raw.githubusercontent.com/nguyendinhvu290296/DemoWebapp/main/data/ttxh_app_2.csv")
 df_td = df_td.set_index('toidanh') 
 toidanh = col1.multiselect("Chọn tội danh thống kê:", list(df_td.index), ["Co y gay thuong tich"])
 donvi_1 = col2.selectbox("Chọn đơn vị thống kê:", list(df.index))
@@ -136,7 +136,7 @@ st.header("2. Biểu đồ cơ cấu tỉ lệ số vụ TTXH")
 
 st.subheader("2.1. Cơ cấu tỷ lệ số vụ TTXH theo địa phương")
 
-df_pie_chart = pd.read_csv("C:\\Users\\CATB\\Desktop\\Getting Data\\ttxh_app.csv") 
+df_pie_chart = pd.read_csv("https://raw.githubusercontent.com/nguyendinhvu290296/DemoWebapp/main/data/ttxh_app.csv") 
 df_pie_chart_1 = df_pie_chart.loc[df_pie_chart["donvi"] != "TOANTINH"]
 data_columns = df_pie_chart_1.columns[1:]
 selected_nam = st.selectbox('Chọn năm thống kê: ', data_columns)
@@ -160,7 +160,7 @@ with st.expander("Xem chi tiết số liệu"):
 
 st.subheader("2.2. Cơ cấu tỷ lệ số vụ TTXH theo tội danh")
 
-df_pie_chart_td = pd.read_csv("C:\\Users\\CATB\\Desktop\\Getting Data\\ttxh_app_2.csv") 
+df_pie_chart_td = pd.read_csv("https://raw.githubusercontent.com/nguyendinhvu290296/DemoWebapp/main/data/ttxh_app_2.csv") 
 col1_td, col2_td = st.columns(2)
 data_columns_td = df_pie_chart_td.columns[1:]
 selected_nam_td = col1_td.selectbox('Chọn năm: ', data_columns_td)
@@ -226,7 +226,7 @@ st.pydeck_chart(pdk.Deck(
      ],
  ))
 def get_UN_data_3():
-    df = pd.read_csv("C:\\Users\\CATB\\Desktop\\Getting Data\\ttxh_app_3.csv") 
+    df = pd.read_csv("https://raw.githubusercontent.com/nguyendinhvu290296/DemoWebapp/main/data/ttxh_app_3.csv") 
     return df.set_index('xa')                            
 df3 = get_UN_data_3()
 with st.expander("Xem chi tiết số liệu"):
