@@ -39,7 +39,7 @@ else:
     data = pd.melt(data, id_vars=["index"]).rename(
         columns={"index": "Năm", "value": "Số vụ TTXH"}
     )   
-    data["Năm"] = pd.to_numeric(data["Năm"])
+    #data["Năm"] = pd.to_numeric(data["Năm"]) 31.5.22
     lines = (
         alt.Chart(data, title = "Biểu đồ số vụ liên quan đến trật tự xã hội tỉnh Thái Bình qua các năm")
         .mark_line()
