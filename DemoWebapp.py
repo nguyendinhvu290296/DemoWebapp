@@ -96,7 +96,7 @@ else:
     df_td = pd.melt(df_td, id_vars=["index"]).rename(
         columns={"index": "Năm", "value": "Số vụ"}
     )   
-    df_td["Năm"] = pd.to_numeric(df_td["Năm"])
+    #df_td["Năm"] = pd.to_numeric(df_td["Năm"]) 31.05.22
     lines = (
         alt.Chart(df_td, title = "Biểu đồ số vụ theo tội danh qua các năm")
         .mark_line()
